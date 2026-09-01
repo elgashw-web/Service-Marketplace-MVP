@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
@@ -48,7 +48,7 @@
   --input: 40 28% 82%;
   --ring: 40 78% 52%;
   --app-font-sans: 'Tajawal', sans-serif;
-  --app-font-serif: 'Readex Pro', sans-serif;
+  --app-font-serif: 'Tajawal', sans-serif;
   --app-font-mono: ui-monospace, SFMono-Regular, monospace;
   --radius: 1.1rem;
   --shadow-sm: 0 4px 12px hsl(35 25% 17% / 0.06);
@@ -76,7 +76,7 @@
   --input: 155 16% 32%;
   --ring: 40 78% 61%;
   --app-font-sans: 'Tajawal', sans-serif;
-  --app-font-serif: 'Readex Pro', sans-serif;
+  --app-font-serif: 'Tajawal', sans-serif;
 }
 
 @layer base {
@@ -116,6 +116,150 @@
 .delay-1 { animation-delay: .08s; }
 .delay-2 { animation-delay: .16s; }
 .delay-3 { animation-delay: .24s; }
+
+.landing-page {
+  background:
+    radial-gradient(circle at 50% -12%, hsl(var(--secondary) / .48), transparent 34rem),
+    hsl(var(--background));
+}
+
+.landing-header {
+  border-bottom: 1px solid hsl(var(--border) / .55);
+}
+
+.landing-login {
+  font-size: .875rem;
+  color: hsl(var(--primary));
+}
+
+.landing-hero {
+  display: grid;
+  gap: 2.5rem;
+  padding-bottom: 2.75rem;
+}
+
+.landing-hero-copy {
+  max-width: 34rem;
+}
+
+.landing-title {
+  font-size: clamp(2.35rem, 10vw, 4rem);
+  line-height: 1.22;
+}
+
+.landing-support {
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+.landing-service-section {
+  max-width: 38rem;
+}
+
+.landing-section-title {
+  font-size: 1.45rem;
+  line-height: 1.4;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.service-card {
+  min-height: 10.25rem;
+  box-shadow: 0 5px 18px hsl(35 25% 17% / .045);
+}
+
+.service-card-icon {
+  transition: transform .2s ease;
+}
+
+.service-card:hover .service-card-icon {
+  transform: scale(1.04);
+}
+
+.landing-trusted {
+  padding: 1.25rem 0;
+}
+
+.landing-how {
+  padding: 2.75rem 0 4rem;
+}
+
+.landing-steps {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.landing-step {
+  border-bottom: 1px solid hsl(var(--border));
+  padding-bottom: 1.5rem;
+}
+
+.landing-step:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .landing-header {
+    border-bottom: 0;
+  }
+
+  .landing-hero {
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+    align-items: end;
+    gap: 5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .landing-hero-copy {
+    order: 2;
+    padding-bottom: 1rem;
+  }
+
+  .landing-service-section {
+    order: 1;
+  }
+
+  .landing-title {
+    font-size: 4.25rem;
+  }
+
+  .landing-support {
+    font-size: 1.15rem;
+  }
+
+  .service-grid {
+    gap: 1rem;
+  }
+
+  .service-card {
+    min-height: 11.5rem;
+    padding: 1.25rem;
+  }
+
+  .landing-trusted {
+    padding: 1.5rem 0;
+  }
+
+  .landing-how {
+    padding: 4rem 0 5rem;
+  }
+
+  .landing-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 3rem;
+  }
+
+  .landing-step:nth-child(3),
+  .landing-step:nth-child(4) {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+}
 
 .scallop {
   background-image: radial-gradient(circle at 12px -2px, transparent 13px, hsl(var(--primary)) 14px);

@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap');
+
+:root {
+  --background: 43 44% 95%;
+  --foreground: 155 24% 18%;
+  --border: 40 28% 86%;
+  --card: 45 50% 98%;
+  --primary: 156 27% 30%;
+  --primary-foreground: 43 44% 95%;
+  --secondary: 41 71% 91%;
+  --muted-foreground: 155 11% 43%;
+  --accent: 40 78% 61%;
+  --app-font-sans: 'Tajawal', sans-serif;
+  --app-font-serif: 'Readex Pro', sans-serif;
+}
+
+html, body, #root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--app-font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.font-display {
+  font-family: var(--app-font-serif);
+}

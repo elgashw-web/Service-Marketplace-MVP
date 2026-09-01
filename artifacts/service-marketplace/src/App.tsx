@@ -4,7 +4,9 @@ import {
   ArrowUpLeft,
   BadgeCheck,
   Bell,
+  BookOpen,
   BriefcaseBusiness,
+  CarFront,
   Check,
   ChevronLeft,
   CircleHelp,
@@ -56,8 +58,8 @@ const getStored = (key: string, fallback: string) => {
 const categories = [
   { title: 'خدمات منزلية', detail: 'سباكة، كهرباء وأكثر', icon: Wrench, color: 'bg-[#e8dfc4]' },
   { title: 'رعاية ومرافقة', detail: 'لكل يوم أسهل', icon: HandHeart, color: 'bg-[#dfe8d6]' },
-  { title: 'نقل ومساعدة', detail: 'معك في مشاويرك', icon: UsersRound, color: 'bg-[#e2e4d4]' },
-  { title: 'دروس ومهارات', detail: 'تعلّم من أهل الخبرة', icon: Sparkles, color: 'bg-[#eaded3]' },
+  { title: 'نقل ومساعدة', detail: 'معك في مشاويرك', icon: CarFront, color: 'bg-[#e2e4d4]' },
+  { title: 'دروس ومهارات', detail: 'تعلّم من أهل الخبرة', icon: BookOpen, color: 'bg-[#eaded3]' },
 ];
 
 const providers = [
@@ -176,44 +178,41 @@ function AppShell({ children, role, profile }: { children: ReactNode; role: Role
 
 function WelcomePage() {
   return (
-    <div className="app-noise min-h-[100dvh] overflow-hidden bg-background">
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 md:px-8 md:py-7">
+    <div dir="rtl" className="landing-page app-noise min-h-[100dvh] overflow-hidden bg-background">
+      <header className="landing-header mx-auto flex max-w-5xl items-center justify-between px-5 py-5 md:px-8 md:py-7">
         <Logo />
-        <div className="flex items-center gap-2"><span className="hidden text-xs text-muted-foreground sm:inline">منصة محلية، بقلب إنساني</span><Button href="/access" variant="outline" className="min-h-10 px-4" testId="link-welcome-access">دخول</Button></div>
+        <Button href="/access" variant="ghost" className="landing-login min-h-10 px-3" testId="link-welcome-access">دخول</Button>
       </header>
-      <main>
-        <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-8 md:grid-cols-[1.05fr_.95fr] md:px-8 md:pb-24 md:pt-16">
-          <div className="float-in order-2 md:order-1">
-            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/10 bg-secondary px-3 py-1.5 text-xs font-bold text-primary"><span className="size-2 rounded-full bg-accent" />أقرب مما تتوقع</span>
-            <h1 className="font-display max-w-xl text-[2.8rem] font-bold leading-[1.23] tracking-tight text-primary sm:text-6xl md:text-[4.3rem]">المساعدة التي تحتاجها، <span className="relative inline-block text-[#9c6d32]">تبدأ من هنا<span className="absolute -bottom-1 right-0 h-1 w-3/4 rounded-full bg-accent/70" /></span></h1>
-            <p className="mt-6 max-w-lg text-lg leading-9 text-muted-foreground">مُعُون يقرّبك من أشخاص موثوقين في حيك. اطلب ما تحتاج، أو شارك خبرتك مع من حولك.</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row"><Button href="/access" variant="accent" className="px-7" testId="link-welcome-start">ابدأ رحلتك <ArrowUpLeft size={18} /></Button><Button href="/account-type" variant="ghost" className="px-4" testId="link-welcome-learn">كيف تعمل المنصة؟ <ChevronLeft size={17} /></Button></div>
-            <div className="mt-9 flex items-center gap-3 text-xs text-muted-foreground"><div className="flex -space-x-2 space-x-reverse">{['م', 'ر', 'ن'].map((x, i) => <Avatar key={x} initials={x} size="size-8" tone={['bg-[#d9e5d2]', 'bg-[#eadfc4]', 'bg-[#eaded3]'][i]} />)}</div><span>انضم إلى جيران يقدّمون المساعدة بصدق</span></div>
+      <main className="mx-auto max-w-5xl px-5 md:px-8">
+        <section className="landing-hero pt-8 md:pt-14">
+          <div className="landing-hero-copy float-in">
+            <p className="landing-greeting text-sm font-bold text-[#9c6d32]">صباح الخير يا نوره</p>
+            <h1 className="landing-title font-display mt-3 font-bold tracking-tight text-primary">كيف نعاونك اليوم؟</h1>
+            <p className="landing-support mt-4 text-muted-foreground">المساعدة التي تحتاجها، تبدأ من هنا</p>
           </div>
-          <div className="relative order-1 min-h-[390px] md:order-2 md:min-h-[540px]">
-            <div className="absolute inset-8 rounded-[42%_58%_55%_45%/43%_44%_56%_57%] bg-[#dfe8d6] md:inset-14" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative w-[min(88%,390px)] rotate-2 rounded-[2rem] border border-primary/10 bg-card p-4 shadow-lg">
-                <div className="rounded-[1.4rem] bg-primary p-5 text-primary-foreground">
-                  <div className="flex items-start justify-between"><div><p className="text-xs text-primary-foreground/65">صباح الخير يا نوره</p><p className="mt-1 font-display text-2xl font-bold">كيف نعاونك اليوم؟</p></div><span className="rounded-xl bg-primary-foreground/10 p-2"><Sparkles size={18} className="text-accent" /></span></div>
-                  <div className="mt-6 flex items-center gap-2 rounded-2xl bg-primary-foreground/10 px-4 py-3 text-sm text-primary-foreground/70"><Search size={17} /><span>اختر خدمة قريبة</span></div>
+          <div className="landing-service-section">
+            <h2 className="landing-section-title font-display font-bold text-primary">اختر خدمة قريبة</h2>
+            <div className="service-grid mt-5">
+              {categories.map(({ title, detail, icon: Icon, color }) => (
+                <div key={title} className="service-card group rounded-3xl border border-border bg-card p-4 text-right transition-all hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-sm">
+                  <span className={`service-card-icon flex size-12 items-center justify-center rounded-2xl ${color} text-primary`}><Icon size={22} strokeWidth={1.9} /></span>
+                  <h3 className="font-display mt-5 text-base font-bold text-primary">{title}</h3>
+                  <p className="mt-1.5 text-sm leading-6 text-muted-foreground">{detail}</p>
                 </div>
-                <div className="grid grid-cols-2 gap-3 p-2 pt-5">{categories.slice(0, 4).map(({ title, icon: Icon, color }) => <div key={title} className="rounded-2xl border border-border/70 bg-background p-3"><span className={`mb-4 flex size-9 items-center justify-center rounded-xl ${color} text-primary`}><Icon size={17} /></span><p className="text-xs font-bold text-primary">{title}</p></div>)}</div>
-              </div>
+              ))}
             </div>
-            <div className="absolute bottom-3 left-0 flex items-center gap-3 rounded-2xl border border-border bg-card p-3 shadow-md sm:left-3"><span className="flex size-10 items-center justify-center rounded-xl bg-[#d9e5d2] text-primary"><ShieldCheck size={20} /></span><span><strong className="block text-sm text-primary">موثوقون في حيك</strong><small className="text-xs text-muted-foreground">خطوة بخطوة</small></span></div>
-            <div className="absolute right-0 top-4 flex size-16 rotate-12 items-center justify-center rounded-3xl bg-accent text-primary shadow-md md:right-4"><HeartHandshake size={27} /></div>
           </div>
         </section>
-        <section className="bg-primary py-14 text-primary-foreground">
-           <div className="mx-auto max-w-6xl px-5 md:px-8">
-             <h2 className="mb-10 font-display text-2xl font-bold md:text-3xl">كيف تعمل المنصة؟</h2>
-             <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-               {[{ n: '١', title: 'انضم إلى جيران يقدّمون المساعدة بصدق', text: '' }, { n: '٢', title: 'اختر ما يناسبك', text: 'تصفح الخدمات أو عرّفنا بخبرتك.' }, { n: '٣', title: 'تواصل بوضوح', text: 'اطلع على الملف والخبرة قبل أي خطوة.' }, { n: '٤', title: 'ابدأ على راحتك', text: 'لا التزامات مخفية. القرار لك دائماً.' }].map((item) => <div key={item.n} className="flex gap-4 border-b border-primary-foreground/15 pb-7 last:border-0 md:border-b-0 md:border-r md:pb-0 md:pr-8 md:last:border-0"><span className="font-display text-4xl text-accent">{item.n}</span><div><h3 className="font-display text-lg font-bold">{item.title}</h3>{item.text && <p className="mt-2 text-sm leading-7 text-primary-foreground/65">{item.text}</p>}</div></div>)}
-             </div>
+        <section className="landing-trusted flex items-center gap-3 border-t border-border">
+          <span className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-[#dfe8d6] text-primary"><ShieldCheck size={21} /></span>
+          <div><strong className="block text-sm font-bold text-primary">موثوقون في حيك</strong><small className="text-xs text-muted-foreground">خطوة بخطوة</small></div>
+        </section>
+        <section className="landing-how border-t border-border" id="how">
+          <h2 className="font-display text-2xl font-bold text-primary md:text-3xl">كيف تعمل المنصة؟</h2>
+          <div className="landing-steps mt-8">
+            {[{ n: '١', title: 'انضم إلى جيران يقدّمون المساعدة بصدق', text: '' }, { n: '٢', title: 'اختر ما يناسبك', text: 'تصفح الخدمات أو عرّفنا بخبرتك.' }, { n: '٣', title: 'تواصل بوضوح', text: 'اطلع على الملف والخبرة قبل أي خطوة.' }, { n: '٤', title: 'ابدأ على راحتك', text: 'لا التزامات مخفية. القرار لك دائماً.' }].map((item) => <div key={item.n} className="landing-step flex gap-4"><span className="font-display text-3xl font-bold text-[#9c6d32]">{item.n}</span><div><h3 className="font-display text-base font-bold text-primary">{item.title}</h3>{item.text && <p className="mt-1.5 text-sm leading-7 text-muted-foreground">{item.text}</p>}</div></div>)}
           </div>
         </section>
-         <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24"><div className="grid items-end gap-6 md:grid-cols-[1fr_auto]"><div><p className="text-sm font-bold text-[#9c6d32]">أهل الخبرة حولك</p><h2 className="mt-3 font-display text-3xl font-bold text-primary md:text-4xl">خدمات صغيرة، فرق كبير</h2></div><p className="max-w-sm text-sm leading-7 text-muted-foreground">من ترتيب المنزل إلى مهارة تتمنى تعلمها. هناك شخص قريب يمكنه أن يعاونك.</p></div><div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{categories.map(({ title, detail, icon: Icon, color }) => <div key={title} className="rounded-3xl border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:shadow-md"><span className={`flex size-12 items-center justify-center rounded-2xl ${color} text-primary`}><Icon size={23} /></span><h3 className="mt-6 font-display font-bold text-primary">{title}</h3><p className="mt-1 text-sm text-muted-foreground">{detail}</p><ArrowLeft className="mt-6 text-primary/50" size={18} /></div>)}</div></section>
       </main>
       <footer className="border-t border-border px-5 py-6 text-center text-xs text-muted-foreground">مُعُون — نكبر حين نعاون بعضنا</footer>
     </div>
