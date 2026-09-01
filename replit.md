@@ -1,6 +1,6 @@
-# [Project name]
+# مَعُون — Service Marketplace
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+An Arabic-first RTL service marketplace MVP that connects beneficiaries with people and businesses offering helpful services.
 
 ## Run & Operate
 
@@ -22,15 +22,24 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/service-marketplace/src/App.tsx` — route-level screens, reusable shell, local demo session, role selection, and profile state
+- `artifacts/service-marketplace/src/index.css` — shared visual tokens, RTL-friendly typography, surfaces, and motion utilities
+- `artifacts/service-marketplace/src/pages/not-found.tsx` — fallback route
+- `artifacts/api-server` and `lib/api-*` — shared backend/API foundation retained for later marketplace capabilities
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The first MVP is frontend-first and does not add marketplace, payment, or reputation data before the core journey is validated.
+- The access flow is explicitly labeled as a local demo session until a managed auth provider is connected.
+- The selected account type and basic profile are persisted in local storage so navigation and reloads feel functional without inventing a backend contract.
+- Beneficiary and provider home screens share the same app shell and profile surface, while role-specific content stays isolated for later expansion.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Welcomes new users in Arabic and guides them into the platform.
+- Supports a local demo sign-up/login experience and role selection.
+- Provides distinct beneficiary and service-provider starting points.
+- Includes a basic profile view with editable local information and sign-out.
 
 ## User preferences
 
